@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Business>
+
+@{
+    ViewData["Title"] = "BusinessListing";
+}
+
+<h3>Business Listing</h3>
+<hr />
+
+<div class="card-deck">
+    <div class="row">
+        @foreach (var business in Model)
+        {
+            //var photoPath = "~/images/" + (employee.PhotoPath ?? "prof.jpg");
+
+            <div class="col-sm-12">
+                <div class="card" style="width: auto">
+                    <div class="card-header">
+                        @business.Name
+                    </div>
+
+                    <div class="card-body">
+                        <p>Name: @business.Name</p>
+                        <hr />
+                        <p>
+                            Email:
+                            @foreach (var email in business.Emails)
+                            {
+                                <ul>
+                                    <li>@email</li>
+                                </ul>
+                            }
+                        </p>
+                    </div>
+
+                    <div class="card-footer">
+                        <div style="float: left">
+                            <p>Footer Space</p>
+                        </div>
+                        <div style="float: right">
+                            <div>
+                                <button type="button" class="btn btn-primary">
+                                    Likes <span class="badge badge-light">@business.Likes</span>
+                                    <span class="sr-only">unread messages</span>
+                                </button>
+
+                                <button type="button" class="btn btn-primary">
+                                    Dislikes <span class="badge badge-light">@business.Dislikes</span>
+                                    <span class="sr-only">unread messages</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
+

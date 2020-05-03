@@ -1,0 +1,38 @@
+﻿@model BusinessDetailsViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div class="row justify-content-center m-3">
+    <div class="col-sm-8">
+        <div class="card">
+            <div class="card-header">
+                <h1>@Model.business.Name</h1>
+            </div>
+
+            <div class="card-body text-center">
+                @*<img class="card-img-top" src="@photoPath" asp-append-version="true" />*@
+
+                <h4>Business ID:  @Model.business.Id </h4>
+                <h4>Business Name:  @Model.business.Name </h4>
+                <h4>Business Email:  @Model.business.Email </h4>
+                <h4>Business City:  @Model.business.City </h4>
+                <h4>Business Province:  @Model.business.Province </h4>
+                <h4>Business Country:  @Model.business.Country</h4>
+                <h4>Business Staffs:  @Model.business.NoOfStaffs </h4>
+                <h4>Business Phone:  @Model.business.Phone </h4>
+            </div>
+
+            <div class="card-footer text-center">
+                <a asp-controller="home" asp-action="index" class="btn btn-primary">Back</a>
+                <a asp-controller="home" asp-action="edit" asp-route-Id="@Model.business.Id"
+                   class="btn btn-primary">Edit</a>
+                <a href="#" class="btn btn-danger">Delete</a>
+            </div>
+        </div>
+    </div>
+</div>
+

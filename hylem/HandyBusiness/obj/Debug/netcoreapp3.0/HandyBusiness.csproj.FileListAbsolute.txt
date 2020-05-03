@@ -127,3 +127,4 @@ C:\Users\Joshua\Documents\Code\ASP_NET CORE\Handy\hylem\HandyBusiness\obj\Debug\
 C:\Users\Joshua\Documents\Code\ASP_NET CORE\Handy\hylem\HandyBusiness\obj\Debug\netcoreapp3.0\Razor\Views\Business\BusinessListing.cshtml.g.cs
 C:\Users\Joshua\Documents\Code\ASP_NET CORE\Handy\hylem\HandyBusiness\bin\Debug\netcoreapp3.0\libman.json
 C:\Users\Joshua\Documents\Code\ASP_NET CORE\Handy\hylem\HandyBusiness\obj\Debug\netcoreapp3.0\Razor\Views\Business\CreateBusiness.cshtml.g.cs
+C:\Users\Joshua\Documents\Code\ASP_NET CORE\Handy\hylem\HandyBusiness\obj\Debug\netcoreapp3.0\Razor\Views\Business\Details.cshtml.g.cs

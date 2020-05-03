@@ -12,23 +12,6 @@ namespace HandyBusiness.Models
 
         public MockBusinessRepository()
         {
-            List<BusinessEmails> businessEmails = new List<BusinessEmails>()
-            {
-                new BusinessEmails(){ Id = 1, BusinessEmail = "EmailForTest1@T.com"},
-                new BusinessEmails(){ Id = 2, BusinessEmail = "EmailForTest2@T.com"},
-                new BusinessEmails(){ Id = 3, BusinessEmail = "EmailForTest3@T.com"},
-                new BusinessEmails(){ Id = 4, BusinessEmail = "EmailForTest4@T.com"},
-                new BusinessEmails(){ Id = 5, BusinessEmail = "EmailForTest5@T.com"},
-            };
-
-            List<BusinessPhones> businessPhones = new List<BusinessPhones>()
-            {
-                new BusinessPhones(){ Id = 1, Phone = "0841111111"},
-                new BusinessPhones(){ Id = 2, Phone = "0841111111"},
-                new BusinessPhones(){ Id = 3, Phone = "0841111111"},
-            };
-
-
             List<Sector> businessSectors = new List<Sector>()
             {
                 new Sector(){ Id = 1, ChargesPerHour = 350.00, OperatingYear = 2, OperatingMonth = 4, SectorName = "Gardening"},
@@ -43,8 +26,8 @@ namespace HandyBusiness.Models
                 {
                     Id = 1,
                     Name = "Test 1 Gardening Services",
-                    Emails = businessEmails,
-                    Phones = businessPhones,
+                    Email = "Email_1@e.com",
+                    Phone = "00000000000",
                     City = "Pretoria",
                     Country = "South Africa",
                     NoOfStaffs = 3,
@@ -59,8 +42,8 @@ namespace HandyBusiness.Models
                 {
                     Id = 2,
                     Name = "Test 2 Gardening Services",
-                    Emails = businessEmails,
-                    Phones = businessPhones,
+                    Email = "Email_2@e.com",
+                    Phone = "11111111111",
                     City = "Midrand",
                     Country = "South Africa",
                     NoOfStaffs = 6,
@@ -73,6 +56,7 @@ namespace HandyBusiness.Models
                 }
             };
         }
+
         public Business GetBusiness(int id)
         {
             return _BusinessList.FirstOrDefault(e => e.Id == id);
@@ -83,7 +67,9 @@ namespace HandyBusiness.Models
         }
         public Business AddBusiness(Business business)
         {
-            throw new NotImplementedException();
+            business.Id = _BusinessList.Max(e => e.Id) + 1;
+            _BusinessList.Add(business);
+            return business;
         }
     }
 }

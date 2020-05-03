@@ -31,16 +31,16 @@
                      </div>
          
                      <div class="card-body">
-                         <p>Name: @business.Name</p>
+                         <p>
+                            Name: @business.Name
+                         </p>
                          <hr />
                          <p>
-                             Email:
-                             @foreach (var email in business.Emails)
-                             {
-                                 <ul>
-                                     <li>@email.BusinessEmail</li>
-                                 </ul>
-                             }
+                             Email: @business.Email
+                         </p>
+                         <hr />
+                         <p>
+                             Phone: @business.Phone
                          </p>
                      </div>
          

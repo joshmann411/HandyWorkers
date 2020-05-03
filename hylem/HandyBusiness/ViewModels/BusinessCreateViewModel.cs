@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace HandyBusiness.ViewModels
 {
-    public class CreateBusinessViewModel
+    public class BusinessCreateViewModel
     {
         [Required]
         [MaxLength(50, ErrorMessage = "Name cannot exceed 50 characters")]
@@ -16,10 +16,10 @@ namespace HandyBusiness.ViewModels
         [RegularExpression(@"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$",
             ErrorMessage = "Invalid Email Format")]
         [Required]
-        public List<BusinessEmails> Emails { get; set; }
+        public string Email { get; set; }
         
         [Required]
-        public List<BusinessPhones> Phones { get; set; }
+        public string Phone { get; set; }
         
         [Required]
         [Display(Name = "Number Of Staffs")]

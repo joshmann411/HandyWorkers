@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace HandyBusiness.Controllers
 {
+    [Route("Business")]
     public class BusinessController : Controller
     {
         private readonly IBusinessRepository _businessRepository;
@@ -29,21 +30,23 @@ namespace HandyBusiness.Controllers
         }
 
         [HttpGet]
+        [Route("CreateBusiness")]
         public IActionResult CreateBusiness()
         {
             return View();
         }
 
         [HttpPost]
-        public IActionResult CreateBusiness(CreateBusinessViewModel model)
+        [Route("CreateBusiness")]
+        public IActionResult CreateBusiness(BusinessCreateViewModel model)
         {
             if(ModelState.IsValid)
             {
                 Business newBusiness = new Business()
                 {
                     Name = model.Name,
-                    Emails = model.Emails,
-                    Phones = model.Phones,
+                    Email = model.Email,
+                    Phone = model.Phone,
                     NoOfStaffs = model.NoOfStaffs,
                     Province = model.Province,
                     City = model.City,
@@ -61,6 +64,26 @@ namespace HandyBusiness.Controllers
             }
 
             return View();
+        }
+
+        [Route("Details/{id?}")]
+        public ViewResult Details(int? id)
+        {
+            Business ViewBusiness = _businessRepository.GetBusiness(id.Value);
+
+            if (ViewBusiness == null)
+            {
+                Response.StatusCode = 404;
+                return View("EmployeeNotFound", id.Value);
+            }
+
+            BusinessDetailsViewModel businessDetailsViewModel = new BusinessDetailsViewModel()
+            {
+                business = ViewBusiness,
+                pageTitle = "Business Details"
+            };
+
+            return View(businessDetailsViewModel);
         }
     }
 }

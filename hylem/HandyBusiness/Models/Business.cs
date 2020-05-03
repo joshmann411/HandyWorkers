@@ -12,9 +12,9 @@ namespace HandyBusiness.Models
         [Required]
         public string Name { get; set; }
         [Required]
-        public List<BusinessEmails> Emails { get; set; }
+        public string Email { get; set; }
         [Required]
-        public List<BusinessPhones> Phones  { get; set; }
+        public string Phone  { get; set; }
         //Pending development
         //At a later stage: 
         //  each employee should have access to their individual front-end
@@ -32,18 +32,6 @@ namespace HandyBusiness.Models
         public List<Sector> Sectors { get; set; }
         public int Likes { get; set; }
         public int Dislikes { get; set; }
-    }
-
-    public class BusinessEmails
-    {
-        public int Id { get; set; }
-        public string BusinessEmail { get; set; }
-    }
-
-    public class BusinessPhones
-    { 
-        public int Id { get; set; }
-        public string Phone { get; set; }
     }
 
     public class Sector

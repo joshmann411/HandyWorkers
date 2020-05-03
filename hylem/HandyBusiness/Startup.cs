@@ -27,10 +27,11 @@ namespace HandyBusiness
         {
             services.AddControllersWithViews();
 
-            services.AddMemoryCache(x => x.SizeLimit = 0);
+            //services.AddMemoryCache(x => x.SizeLimit = 0);
 
             //services.AddSingleton<IEmployeeRepository, MockEmployeeRepository>();
-            services.AddScoped<IBusinessRepository, MockBusinessRepository>();
+
+            services.AddSingleton<IBusinessRepository, MockBusinessRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

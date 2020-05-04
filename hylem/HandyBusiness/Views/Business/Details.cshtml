@@ -5,8 +5,8 @@
 }
 
 <h1>Details</h1>
-
-<div class="row justify-content-center m-3">
+<hr />
+@*<div class="row justify-content-center m-3">
     <div class="col-sm-8">
         <div class="card">
             <div class="card-header">
@@ -14,8 +14,7 @@
             </div>
 
             <div class="card-body text-center">
-                @*<img class="card-img-top" src="@photoPath" asp-append-version="true" />*@
-
+              
                 <h4>Business ID:  @Model.business.Id </h4>
                 <h4>Business Name:  @Model.business.Name </h4>
                 <h4>Business Email:  @Model.business.Email </h4>
@@ -34,5 +33,38 @@
             </div>
         </div>
     </div>
+</div>*@
+
+<div class="row">
+    <div class="col-md-7">
+        <div style="margin: 50px 40px 50px 20px;">
+            <h4>Business ID:  @Model.business.Id </h4>
+            <h4>Business Name:  @Model.business.Name </h4>
+            <h4>Business Email:  @Model.business.Email </h4>
+            <h4>Business City:  @Model.business.City </h4>
+            <h4>Business Province:  @Model.business.Province </h4>
+            <h4>Business Country:  @Model.business.Country</h4>
+            <h4>Business Staffs:  @Model.business.NoOfStaffs </h4>
+            <h4>Business Phone:  @Model.business.Phone </h4>
+        </div>
+    </div>
+    <div class="col-md-5">
+        <div>
+            @{ 
+                //var photoPath = "~/images/" + (Model.employee.PhotoPath ?? "prof.jpg");
+
+                string pathpostimages = Model.business.Name + "/" + Model.business.Photos[0];
+
+                var photoPath = "~/images/" + (pathpostimages ?? "prof.jpg");
+            }
+
+            <img src="@photoPath" class="img img-thumbnail"  @*style="width: 50px; height: 80px; margin:25px 10px 25px 10px"*@ asp-append-version="true"/>
+        </div>
+    </div>
 </div>
 
+<script type="text/javascript">
+    alert(@pathpostimages);
+
+    alert(@photoPath);
+</script>

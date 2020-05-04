@@ -32,6 +32,7 @@ namespace HandyBusiness.Models
         public List<Sector> Sectors { get; set; }
         public int Likes { get; set; }
         public int Dislikes { get; set; }
+        public List<string> Photos { get; set; }
     }
 
     public class Sector
@@ -41,6 +42,5 @@ namespace HandyBusiness.Models
         public int OperatingYear { get; set; }
         public int OperatingMonth { get; set; }
         public double ChargesPerHour { get; set; }
-        
     }
 }

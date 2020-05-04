@@ -4,74 +4,85 @@
     ViewData["Title"] = "BusinessListing";
 }
 
-<h3>Business Listing</h3>
-<hr />
+
 
 <div class="row">
-
-    <input class="form-control mt-2" id="myInput" type="text" placeholder="Search by Name...">
-    <input class="form-control mt-2" id="myInput" type="text" placeholder="Search by Location...">
-    <input class="form-control mt-2" id="myInput" type="text" placeholder="Search by Sector...">
-
+    <div class="col-md-2"></div>
+    
+    <div class="col-md-8">
+        <h3>Business Listing</h3>
+        <hr />
+        <input class="form-control mt-2" id="myInput" type="text" placeholder="Search by Name...">
+        <input class="form-control mt-2" id="myInput" type="text" placeholder="Search by Location...">
+        <input class="form-control mt-2" id="myInput" type="text" placeholder="Search by Sector...">
+        <hr />
+    </div>
+    
+    <div class="col-md-2"></div>
 </div>
 
-<hr />
-
+<div style="width: auto; height: 120px; display: block">
     @foreach (var business in Model)
     {
-         <div class="row">
-             <div class="col-md-2"></div>
-         
-             <div class="col-md-8">
-                 @*var photoPath = "~/images/" + (employee.PhotoPath ?? "prof.jpg");*@
-         
-                 <div class="card">
-                     <div class="card-header">
-                         @business.Name
-                     </div>
-         
-                     <div class="card-body">
-                         <p>
-                            Name: @business.Name
-                         </p>
-                         <hr />
-                         <p>
-                             Email: @business.Email
-                         </p>
-                         <hr />
-                         <p>
-                             Phone: @business.Phone
-                         </p>
-                     </div>
-         
-                     <div class="card-footer">
-                         <div style="float: left">
-                             <p>Footer Space</p>
-                         </div>
-                         <div style="float: right">
-                             <div>
-                                 <button type="button" class="btn btn-primary">
-                                     Likes <span class="badge badge-light">@business.Likes</span>
-                                     <span class="sr-only">unread messages</span>
-                                 </button>
-         
-                                 <button type="button" class="btn btn-primary">
-                                     Dislikes <span class="badge badge-light">@business.Dislikes</span>
-                                     <span class="sr-only">unread messages</span>
-                                 </button>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-                 <br />
-                 <hr />
-                 <br />
-             </div>
-         
-             <div class="col-md-2"></div>
-         </div>
-    }
-     
+        <div class="row">
+            <div class="col-md-2"></div>
 
+            <div class="col-md-8">
+                @*var photoPath = "~/images/" + (employee.PhotoPath ?? "prof.jpg");*@
+
+                <div class="card">
+                    <div class="card-header">
+                        @business.Name
+                    </div>
+
+                    <div class="card-body">
+                        <p>
+                            Name: @business.Name
+                        </p>
+                        <hr />
+                        <p>
+                            Email: @business.Email
+                        </p>
+                        <hr />
+                        <p>
+                            Phone: @business.Phone
+                        </p>
+                    </div>
+
+                    <div class="card-footer">
+                        <div style="float: left">
+                            <p>Footer Space</p>
+                        </div>
+                        <div style="float: right">
+                            <div>
+                                @*<span>
+                                    <i class="far fa-thumbs-up"></i>
+                                </span>
+                                <span>
+                                    <i class="far fa-thumbs-up"></i>
+                                </span>*@
+
+                                <button type="button" class="btn btn-primary">
+                                    Likes <span class="badge badge-light">@business.Likes</span>
+                                    <span class="sr-only">unread messages</span>
+                                </button>
+
+                                <button type="button" class="btn btn-primary">
+                                    Dislikes <span class="badge badge-light">@business.Dislikes</span>
+                                    <span class="sr-only">unread messages</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <hr />
+                <br />
+            </div>
+
+            <div class="col-md-2"></div>
+        </div>
+    }
+</div>
 
 

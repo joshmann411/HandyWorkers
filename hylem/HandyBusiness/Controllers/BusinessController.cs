@@ -49,7 +49,7 @@ namespace HandyBusiness.Controllers
         {
             if(ModelState.IsValid)
             {
-                List<string> uniqueFilename = ProcessUploadedFile(model);
+                List<BusinessPhotos> uniqueFilename = ProcessUploadedFile(model);
 
                 Business newBusiness = new Business()
                 {
@@ -76,27 +76,29 @@ namespace HandyBusiness.Controllers
             return View();
         }
 
-        private List<string> ProcessUploadedFile(BusinessCreateViewModel model)
+        private List<BusinessPhotos> ProcessUploadedFile(BusinessCreateViewModel model)
         {
             string uniqueFilename = null;
 
-            List<string> allUploadedFiles = new List<string>();
+            List<BusinessPhotos> allUploadedFiles = new List<BusinessPhotos>();
 
             if (model.Photos.Count > 0)
             {
                 string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "images", model.Name);
 
                 var cd = Directory.CreateDirectory(uploadsFolder);
-                
+
+                int counter = 1;
                 foreach (IFormFile photo in model.Photos)
                 {
                     uniqueFilename = Guid.NewGuid().ToString() + "_" + photo.FileName;
-                    allUploadedFiles.Add(uniqueFilename);
+                    allUploadedFiles.Add(new BusinessPhotos() { Id = counter, Photo = uniqueFilename }); ;
                     string filePath = Path.Combine(uploadsFolder, uniqueFilename);
                     using (var fileStream = new FileStream(filePath, FileMode.Create))
                     {
                         photo.CopyTo(fileStream);
                     }
+                    counter++;
                 }
             }
 

@@ -32,7 +32,13 @@ namespace HandyBusiness.Models
         public List<Sector> Sectors { get; set; }
         public int Likes { get; set; }
         public int Dislikes { get; set; }
-        public List<string> Photos { get; set; }
+        public List<BusinessPhotos> Photos { get; set; }
+    }
+
+    public class BusinessPhotos
+    {
+        public int Id { get; set; }
+        public string Photo { get; set; }
     }
 
     public class Sector

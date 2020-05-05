@@ -71,5 +71,31 @@ namespace HandyBusiness.Models
             _BusinessList.Add(business);
             return business;
         }
+
+        public Business UpdateBusiness(Business businessChanges)
+        {
+            Business business = _BusinessList.FirstOrDefault(e => e.Id == businessChanges.Likes);
+
+            if (business != null)
+            {
+                //make business object = changes made... possible - test to confirm ?
+                business = businessChanges;
+            }
+
+            return business;
+        }
+
+        public Business DeleteBusiness(int id)
+        {
+            Business business = _BusinessList.FirstOrDefault(e => e.Id == id);
+
+            if(business != null)
+            {
+                //perform magic: never delete actual info without keeping data pls
+                _BusinessList.Remove(business);
+            }
+
+            return business;
+        }
     }
 }

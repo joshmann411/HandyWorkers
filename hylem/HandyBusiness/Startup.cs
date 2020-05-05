@@ -7,6 +7,7 @@ using HandyBusiness.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -15,23 +16,25 @@ namespace HandyBusiness
 {
     public class Startup
     {
+        public IConfiguration Configuration { get; }
+        
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
-
-        public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
 
+            services.AddDbContextPool<HylemDbContext>(
+                options => options.UseSqlServer(Configuration.GetConnectionString("EmployeeDBConnection")));
+
             //services.AddMemoryCache(x => x.SizeLimit = 0);
 
-            //services.AddSingleton<IEmployeeRepository, MockEmployeeRepository>();
-
-            services.AddSingleton<IBusinessRepository, MockBusinessRepository>();
+            //services.AddSingleton<IBusinessRepository, MockBusinessRepository>();
+            services.AddScoped<IBusinessRepository, SqlBusinessRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

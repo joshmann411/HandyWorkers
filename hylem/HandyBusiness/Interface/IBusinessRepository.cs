@@ -17,5 +17,10 @@ namespace HandyBusiness.Interface
         //Add a new Business
         Business AddBusiness(Business business);
 
+        //Update existing
+        Business UpdateBusiness(Business businessChanges);
+
+        //This should almost never be used
+        Business DeleteBusiness(int id);
     }
 }

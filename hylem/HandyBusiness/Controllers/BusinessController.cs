@@ -74,7 +74,7 @@ namespace HandyBusiness.Controllers
                 return RedirectToAction("Businesslisting");
             }
 
-            return View();
+            return View(model);
         }
 
         private List<BusinessPhotos> ProcessUploadedFile(BusinessCreateViewModel model)

@@ -16,5 +16,6 @@ namespace HandyBusiness.Models
 
         public DbSet<Business> businesses { get; set; }
         public DbSet<Sector> sectors { get; set; }
+        public DbSet<BusinessPhotos> businessPhotos { get; set; }
     }
 }

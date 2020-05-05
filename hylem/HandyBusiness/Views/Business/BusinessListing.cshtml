@@ -8,7 +8,7 @@
 
 <div class="row">
     <div class="col-md-2"></div>
-    
+
     <div class="col-md-8">
         <h3>Business Listing</h3>
         <hr />
@@ -17,72 +17,72 @@
         <input class="form-control mt-2" id="myInput" type="text" placeholder="Search by Sector...">
         <hr />
     </div>
-    
+
     <div class="col-md-2"></div>
 </div>
+
 
 <div style="width: auto; height: 120px; display: block">
     @foreach (var business in Model)
     {
-        <div class="row">
-            <div class="col-md-2"></div>
 
-            <div class="col-md-8">
-                @*var photoPath = "~/images/" + (employee.PhotoPath ?? "prof.jpg");*@
-
-                <div class="card">
-                    <div class="card-header">
-                        @business.Name
-                    </div>
-
-                    <div class="card-body">
-                        <p>
-                            Name: @business.Name
-                        </p>
-                        <hr />
-                        <p>
-                            Email: @business.Email
-                        </p>
-                        <hr />
-                        <p>
-                            Phone: @business.Phone
-                        </p>
-                    </div>
-
-                    <div class="card-footer">
-                        <div style="float: left">
-                            <p>Footer Space</p>
-                        </div>
-                        <div style="float: right">
-                            <div>
-                                @*<span>
-                                    <i class="far fa-thumbs-up"></i>
-                                </span>
-                                <span>
-                                    <i class="far fa-thumbs-up"></i>
-                                </span>*@
-
-                                <button type="button" class="btn btn-primary">
-                                    Likes <span class="badge badge-light">@business.Likes</span>
-                                    <span class="sr-only">unread messages</span>
-                                </button>
-
-                                <button type="button" class="btn btn-primary">
-                                    Dislikes <span class="badge badge-light">@business.Dislikes</span>
-                                    <span class="sr-only">unread messages</span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <br />
-                <hr />
-                <br />
+        <div class="blog-card ">
+            @*var photoPath = "~/images/" + (employee.PhotoPath ?? "prof.jpg");*@
+            @{
+                var photopath = "~/images/" + (business.Photos[0].Photo.ToString() ?? "prof.jpg");
+            }
+            <div class="meta">
+                <div class="photo img-thumbnail" style="background-image: url('@photopath')"></div>
+                <ul class="details">
+                    <li class="author"><a href="#">Klaus MIchaelson</a></li>
+                    <li class="date">Aug. 24, 2015</li>
+                    <li class="tags">
+                        <ul>
+                            <li><a href="#">Email: @business.Email</a></li>
+                            <li><a href="#">Phone: @business.Phone</a></li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
 
-            <div class="col-md-2"></div>
+            <div class="description">
+                <h1> Name: @business.Name</h1>
+                <h2>business sector name</h2>
+            </div>
+            <a href="#">More</a>
+
         </div>
+
+
+        <button type="button" class="btn btn-primary">
+            Likes <span class="badge badge-light">@business.Likes</span>
+            <span class="sr-only">unread messages</span>
+        </button>
+
+        <button type="button" class="btn btn-primary">
+            Dislikes <span class="badge badge-light">@business.Dislikes</span>
+            <span class="sr-only">unread messages</span>
+        </button>
+
+
+        @*<span>
+                <i class="far fa-thumbs-up"></i>
+            </span>
+            <span>
+                <i class="far fa-thumbs-up"></i>
+            </span>*@
+
+
+
+
     }
 </div>
-
+<script>
+    window.console = window.console || function (t) { };
+</script>
+<script>
+    if (document.location.search.match(/type=embed/gi)) {
+        window.parent.postMessage("resize", "*");
+    }
+</script>
 

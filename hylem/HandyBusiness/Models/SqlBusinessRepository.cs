@@ -38,6 +38,10 @@ namespace HandyBusiness.Models
 
         public IEnumerable<Business> GetAllBusinesses()
         {
+            //
+            var bus = context.businesses;
+           
+            //use linq to get business|with|photo|with|sector
             return context.businesses;
         }
 

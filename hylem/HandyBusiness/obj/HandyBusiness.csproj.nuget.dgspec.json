@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Joshua\\Documents\\Code\\ASP_NET CORE\\Handy\\hylem\\HandyBusiness\\HandyBusiness.csproj": {}
+    "C:\\Users\\jsoladoye\\Documents\\SOski\\project\\Handy\\hylem\\HandyBusiness\\HandyBusiness.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Joshua\\Documents\\Code\\ASP_NET CORE\\Handy\\hylem\\HandyBusiness\\HandyBusiness.csproj": {
+    "C:\\Users\\jsoladoye\\Documents\\SOski\\project\\Handy\\hylem\\HandyBusiness\\HandyBusiness.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Joshua\\Documents\\Code\\ASP_NET CORE\\Handy\\hylem\\HandyBusiness\\HandyBusiness.csproj",
+        "projectUniqueName": "C:\\Users\\jsoladoye\\Documents\\SOski\\project\\Handy\\hylem\\HandyBusiness\\HandyBusiness.csproj",
         "projectName": "HandyBusiness",
-        "projectPath": "C:\\Users\\Joshua\\Documents\\Code\\ASP_NET CORE\\Handy\\hylem\\HandyBusiness\\HandyBusiness.csproj",
-        "packagesPath": "C:\\Users\\Joshua\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Joshua\\Documents\\Code\\ASP_NET CORE\\Handy\\hylem\\HandyBusiness\\obj\\",
+        "projectPath": "C:\\Users\\jsoladoye\\Documents\\SOski\\project\\Handy\\hylem\\HandyBusiness\\HandyBusiness.csproj",
+        "packagesPath": "C:\\Users\\jsoladoye\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\jsoladoye\\Documents\\SOski\\project\\Handy\\hylem\\HandyBusiness\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\Joshua\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\jsoladoye\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -25,7 +25,6 @@
           "netcoreapp3.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -79,6 +78,14 @@
             {
               "name": "Microsoft.NETCore.App.Host.win-x64",
               "version": "[3.0.3, 3.0.3]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[3.0.0, 3.0.0]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[3.0.0, 3.0.0]"
             }
           ],
           "frameworkReferences": {
@@ -89,7 +96,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

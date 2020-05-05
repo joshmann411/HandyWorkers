@@ -70,7 +70,8 @@ namespace HandyBusiness.Controllers
 
                 _businessRepository.AddBusiness(newBusiness);
 
-                return RedirectToAction("details", new { id = newBusiness.Id });
+                //return RedirectToAction("details", new { id = newBusiness.Id });
+                return RedirectToAction("Businesslisting");
             }
 
             return View();
@@ -88,17 +89,15 @@ namespace HandyBusiness.Controllers
 
                 var cd = Directory.CreateDirectory(uploadsFolder);
 
-                int counter = 1;
                 foreach (IFormFile photo in model.Photos)
                 {
                     uniqueFilename = Guid.NewGuid().ToString() + "_" + photo.FileName;
-                    allUploadedFiles.Add(new BusinessPhotos() { Id = counter, Photo = uniqueFilename }); ;
+                    allUploadedFiles.Add(new BusinessPhotos() { Photo = uniqueFilename }); ;
                     string filePath = Path.Combine(uploadsFolder, uniqueFilename);
                     using (var fileStream = new FileStream(filePath, FileMode.Create))
                     {
                         photo.CopyTo(fileStream);
                     }
-                    counter++;
                 }
             }
 

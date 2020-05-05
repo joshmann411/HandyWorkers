@@ -53,9 +53,9 @@
             @{ 
                 //var photoPath = "~/images/" + (Model.employee.PhotoPath ?? "prof.jpg");
 
-                string pathpostimages = Model.business.Name + "/" + Model.business.Photos[0];
+                string pathpostimages = Model.business.Name + "/" + Model.business.businessPhotos[0].Photo;
 
-                var photoPath = "~/images/" + (pathpostimages ?? "prof.jpg");
+                var photoPath = "~/images/" + (pathpostimages ?? "default.jpg");
             }
 
             <img src="@photoPath" class="img img-thumbnail"  @*style="width: 50px; height: 80px; margin:25px 10px 25px 10px"*@ asp-append-version="true"/>
@@ -64,7 +64,5 @@
 </div>
 
 <script type="text/javascript">
-    alert(@pathpostimages);
 
-    alert(@photoPath);
 </script>

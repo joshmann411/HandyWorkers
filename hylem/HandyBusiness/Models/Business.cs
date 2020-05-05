@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -32,13 +33,17 @@ namespace HandyBusiness.Models
         public List<Sector> Sectors { get; set; }
         public int Likes { get; set; }
         public int Dislikes { get; set; }
-        public List<BusinessPhotos> Photos { get; set; }
+        //public List<int> BusinessPhotosId { get; set; }
+        public List<BusinessPhotos> businessPhotos { get; set; }
     }
 
     public class BusinessPhotos
     {
         public int Id { get; set; }
         public string Photo { get; set; }
+        public int businessId { get; set; }
+        [ForeignKey("businessId")]
+        public Business business { get; set; }
     }
 
     public class Sector
@@ -48,5 +53,6 @@ namespace HandyBusiness.Models
         public int OperatingYear { get; set; }
         public int OperatingMonth { get; set; }
         public double ChargesPerHour { get; set; }
+        public Business business { get; set; }
     }
 }

@@ -61,10 +61,16 @@ namespace HandyBusiness.Models
         {
             return _BusinessList.FirstOrDefault(e => e.Id == id);
         }
-        public IEnumerable<Business> GetAllBusinesses()
+        //public IEnumerable<Business> GetAllBusinesses()
+        //{
+        //    return _BusinessList;
+        //}
+
+        public List<Business> GetAllBusinesses()
         {
             return _BusinessList;
         }
+
         public Business AddBusiness(Business business)
         {
             business.Id = _BusinessList.Max(e => e.Id) + 1;

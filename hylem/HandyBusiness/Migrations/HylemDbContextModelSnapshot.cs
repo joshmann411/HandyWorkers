@@ -76,17 +76,17 @@ namespace HandyBusiness.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("BusinessId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Photo")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("businessId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("BusinessId");
+                    b.HasIndex("businessId");
 
-                    b.ToTable("BusinessPhotos");
+                    b.ToTable("businessPhotos");
                 });
 
             modelBuilder.Entity("HandyBusiness.Models.Sector", b =>
@@ -95,9 +95,6 @@ namespace HandyBusiness.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("BusinessId")
-                        .HasColumnType("int");
 
                     b.Property<double>("ChargesPerHour")
                         .HasColumnType("float");
@@ -111,25 +108,30 @@ namespace HandyBusiness.Migrations
                     b.Property<string>("SectorName")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("businessId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("BusinessId");
+                    b.HasIndex("businessId");
 
-                    b.ToTable("sectors");
+                    b.ToTable("businessSectors");
                 });
 
             modelBuilder.Entity("HandyBusiness.Models.BusinessPhotos", b =>
                 {
-                    b.HasOne("HandyBusiness.Models.Business", null)
-                        .WithMany("Photos")
-                        .HasForeignKey("BusinessId");
+                    b.HasOne("HandyBusiness.Models.Business", "business")
+                        .WithMany("businessPhotos")
+                        .HasForeignKey("businessId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("HandyBusiness.Models.Sector", b =>
                 {
-                    b.HasOne("HandyBusiness.Models.Business", null)
+                    b.HasOne("HandyBusiness.Models.Business", "business")
                         .WithMany("Sectors")
-                        .HasForeignKey("BusinessId");
+                        .HasForeignKey("businessId");
                 });
 #pragma warning restore 612, 618
         }

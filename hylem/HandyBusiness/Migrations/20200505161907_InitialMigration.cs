@@ -30,27 +30,27 @@ namespace HandyBusiness.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "BusinessPhotos",
+                name: "businessPhotos",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Photo = table.Column<string>(nullable: true),
-                    BusinessId = table.Column<int>(nullable: true)
+                    businessId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_BusinessPhotos", x => x.Id);
+                    table.PrimaryKey("PK_businessPhotos", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_BusinessPhotos_businesses_BusinessId",
-                        column: x => x.BusinessId,
+                        name: "FK_businessPhotos_businesses_businessId",
+                        column: x => x.businessId,
                         principalTable: "businesses",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "sectors",
+                name: "businessSectors",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -59,37 +59,37 @@ namespace HandyBusiness.Migrations
                     OperatingYear = table.Column<int>(nullable: false),
                     OperatingMonth = table.Column<int>(nullable: false),
                     ChargesPerHour = table.Column<double>(nullable: false),
-                    BusinessId = table.Column<int>(nullable: true)
+                    businessId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_sectors", x => x.Id);
+                    table.PrimaryKey("PK_businessSectors", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_sectors_businesses_BusinessId",
-                        column: x => x.BusinessId,
+                        name: "FK_businessSectors_businesses_businessId",
+                        column: x => x.businessId,
                         principalTable: "businesses",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_BusinessPhotos_BusinessId",
-                table: "BusinessPhotos",
-                column: "BusinessId");
+                name: "IX_businessPhotos_businessId",
+                table: "businessPhotos",
+                column: "businessId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_sectors_BusinessId",
-                table: "sectors",
-                column: "BusinessId");
+                name: "IX_businessSectors_businessId",
+                table: "businessSectors",
+                column: "businessId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "BusinessPhotos");
+                name: "businessPhotos");
 
             migrationBuilder.DropTable(
-                name: "sectors");
+                name: "businessSectors");
 
             migrationBuilder.DropTable(
                 name: "businesses");

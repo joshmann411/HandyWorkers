@@ -12,7 +12,8 @@ namespace HandyBusiness.Interface
         Business GetBusiness(int id);
         
         //Get all businesses
-        IEnumerable<Business> GetAllBusinesses();
+        //IEnumerable<Business> GetAllBusinesses();
+        List<Business> GetAllBusinesses();
         
         //Add a new Business
         Business AddBusiness(Business business);

@@ -1,4 +1,5 @@
 ﻿using HandyBusiness.Interface;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,9 +37,18 @@ namespace HandyBusiness.Models
             return business;
         }
 
-        public IEnumerable<Business> GetAllBusinesses()
+        //public IEnumerable<Business> GetAllBusinesses()
+        //{
+        //    var businesses = context.businesses;
+
+        //    return
+        //    //businesses;
+        //}
+
+        //change GetAllBusinesses return type to IEnumerable ?
+        public List<Business> GetAllBusinesses()
         {
-            return context.businesses;
+            return context.businesses.Include("businessPhotos").ToList();
         }
 
         public Business GetBusiness(int id)

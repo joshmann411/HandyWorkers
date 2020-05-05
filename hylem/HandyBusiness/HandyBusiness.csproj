@@ -5,6 +5,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20200505005754_InitialMigration.cs" />
+    <Compile Remove="Migrations\20200505005754_InitialMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200505141228_AddNavigationProperty.cs" />
+    <Compile Remove="Migrations\20200505141228_AddNavigationProperty.Designer.cs" />
+    <Compile Remove="Migrations\20200505161520_InitialMigration.cs" />
+    <Compile Remove="Migrations\20200505161520_InitialMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200505161718_InitialMigration.cs" />
+    <Compile Remove="Migrations\20200505161718_InitialMigration.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.0.0">
       <PrivateAssets>all</PrivateAssets>

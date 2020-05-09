@@ -49,7 +49,8 @@ namespace HandyBusiness.Controllers
         {
             if(ModelState.IsValid)
             {
-                List<BusinessPhotos> uniqueFilename = ProcessUploadedFile(model);
+                //build and update business image(s)
+                List<BusinessPhotos> uniqueFilename = ProcessUploadedFile_s(model);
 
                 Business newBusiness = new Business()
                 {
@@ -62,7 +63,8 @@ namespace HandyBusiness.Controllers
                     Country = model.Country,
                     AddressLine = model.AddressLine,
                     PostalCode = model.PostalCode,
-                    Sectors = model.Sectors,
+                    //Sectors = businessSector,
+                    //businessEmployees = employeesPerBusiness,
                     Likes = model.Likes,
                     Dislikes = model.Dislikes,
                     businessPhotos = uniqueFilename
@@ -77,7 +79,42 @@ namespace HandyBusiness.Controllers
             return View();
         }
 
-        private List<BusinessPhotos> ProcessUploadedFile(BusinessCreateViewModel model)
+        [HttpGet]
+        [Route("UpdateBusiness")]
+        public IActionResult UpdateBusiness(int id)
+        {
+            Business business = _businessRepository.GetBusiness(id);
+
+            BusinessEditViewModel businessEditViewModel = new BusinessEditViewModel()
+            {
+                Id = business.Id,
+                Name = business.Name,
+                Email = business.Email,
+                Phone = business.Phone,
+                City = business.City,
+                Country = business.Country,
+                Province = business.Province,
+                NoOfStaffs = business.NoOfStaffs,
+                AddressLine = business.AddressLine,
+                PostalCode = business.PostalCode,
+                Likes = business.Likes,
+                Dislikes = business.Dislikes,
+                //BusinessProfilePhotoPath = business.businessPhotos.FirstOrDefault(x => x.Photo != string.Empty)
+                BusinessProfilePhotoPath = business.businessPhotos[0].Photo
+            };
+
+            return View(businessEditViewModel);
+        }
+
+        [HttpGet]
+        [Route("UpdateBusiness")]
+        public IActionResult UpdateBusiness(BusinessEditViewModel model)
+        {
+
+            return View();
+        }
+
+        private List<BusinessPhotos> ProcessUploadedFile_s(BusinessCreateViewModel model)
         {
             string uniqueFilename = null;
 
@@ -103,7 +140,22 @@ namespace HandyBusiness.Controllers
 
             return allUploadedFiles;
         }
+
+        private List<Models.Sector> ProcessUploadedSector_s(BusinessCreateViewModel model)
+        {
+            #warning Write logic to implement selected/added sector(s)
+
+            return null;
+        }
+
         
+        //private List<Models.Employee> ProcessAddedEmployee_s(Models.Employee employee)
+        private List<Models.Employee> ProcessAddedEmployee_s(BusinessCreateViewModel model)
+        {
+            #warning Add implementation for added employees
+            
+            return null;
+        }
 
         [Route("Details/{id?}")]
         public ViewResult Details(int? id)

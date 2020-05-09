@@ -8,7 +8,51 @@ using System.Threading.Tasks;
 
 namespace HandyBusiness.ViewModels
 {
-    public class BusinessCreateViewModel
+    #region sector
+    interface ISector
+    {
+        public string SectorName { get; set; }
+        public int OperatingYear { get; set; }
+        public int OperatingMonth { get; set; }
+        public double ChargesPerHour { get; set; }
+    }
+
+    public class SectorViewModel : ISector
+    {
+        public string SectorName { get; set; }
+        public int OperatingYear { get; set; }
+        public int OperatingMonth { get; set; }
+        public double ChargesPerHour { get; set; }
+    }
+    #endregion
+
+
+    #region Employee
+    interface IEmployee
+    {
+        public string IdNumber { get; set; }
+        public string Firstname { get; set; }
+        public string Lastname { get; set; }
+        public string Email { get; set; }
+        public string CellNo { get; set; }
+        public string Gender { get; set; }
+        public string DateOfBirth { get; set; }
+    }
+
+    public class EmployeeViewModel : IEmployee
+    {
+        public string IdNumber { get; set; }
+        public string Firstname { get; set; }
+        public string Lastname { get; set; }
+        public string Email { get; set; }
+        public string CellNo { get; set; }
+        public string Gender { get; set; }
+        public string DateOfBirth { get; set; }
+    }
+    #endregion
+
+
+    public class BusinessCreateViewModel 
     {
         [Required]
         [MaxLength(50, ErrorMessage = "Name cannot exceed 50 characters")]
@@ -45,11 +89,9 @@ namespace HandyBusiness.ViewModels
         [Required]
         [MaxLength(6, ErrorMessage = "Poastal Code can not exceed 6 characters")]
         public string PostalCode { get; set; }
-        
-        public List<Sector> Sectors { get; set; }
-        
         public int Likes { get; set; }
         public int Dislikes { get; set; }
         public List<IFormFile> Photos { get; set; }
+        
     }
 }

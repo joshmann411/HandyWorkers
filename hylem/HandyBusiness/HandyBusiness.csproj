@@ -13,6 +13,8 @@
     <Compile Remove="Migrations\20200505161520_InitialMigration.Designer.cs" />
     <Compile Remove="Migrations\20200505161718_InitialMigration.cs" />
     <Compile Remove="Migrations\20200505161718_InitialMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200506104853_AddEmployeeSchema.cs" />
+    <Compile Remove="Migrations\20200506104853_AddEmployeeSchema.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

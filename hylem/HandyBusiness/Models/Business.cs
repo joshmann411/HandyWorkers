@@ -10,6 +10,7 @@ namespace HandyBusiness.Models
     public class Business
     {
         public int Id  { get; set; }
+
         [Required]
         public string Name { get; set; }
         [Required]
@@ -35,6 +36,7 @@ namespace HandyBusiness.Models
         public int Dislikes { get; set; }
         //public List<int> BusinessPhotosId { get; set; }
         public List<BusinessPhotos> businessPhotos { get; set; }
+        public List<Employee> businessEmployees { get; set; }
     }
 
     public class BusinessPhotos
@@ -53,6 +55,30 @@ namespace HandyBusiness.Models
         public int OperatingYear { get; set; }
         public int OperatingMonth { get; set; }
         public double ChargesPerHour { get; set; }
+        public int businessId { get; set; }
+        [ForeignKey("businessId")]
+        public Business business { get; set; }
+    }
+    
+    public class Employee
+    {
+        public int Id { get; set; }
+        [MaxLength(13, ErrorMessage = "Length cannot exceed 13 characters")]
+        public string IdNumber { get; set; }
+        
+        [MaxLength(50, ErrorMessage = "Length cannot exceed 13 characters")]
+        public string Firstname { get; set; }
+        [MaxLength(50, ErrorMessage = "Length cannot exceed 13 characters")]
+        public string Lastname { get; set; }
+        [RegularExpression(@"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$",
+            ErrorMessage = "Invalid Email Format")]
+        public string Email{ get; set; }
+        public string CellNo{ get; set; }
+        [MaxLength(7)]
+        public string Gender { get; set; }
+        public string DateOfBirth{ get; set; }
+        public int businessId { get; set; }
+        [ForeignKey("businessId")]
         public Business business { get; set; }
     }
 }

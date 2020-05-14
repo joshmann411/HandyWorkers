@@ -53,7 +53,7 @@ namespace HandyBusiness.Models
 
         public Business GetBusiness(int id)
         {
-            return context.businesses.Find(id);
+            return context.businesses.Include("businessPhotos").FirstOrDefault(x => x.Id == id);
         }
 
         public Business UpdateBusiness(Business businessChanges)

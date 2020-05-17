@@ -6,14 +6,21 @@
 
 
 @{
-    var businessName = Model.business.Name ?? "Business";
-    //var photoPath2 = "/images/" + (Model.business?.Name) + "/" + Model.business?.businessPhotos[0].Photo.ToString() ?? "prof.png";
-    var photoPath = "~/images/" + (Model.business?.Name) + "/" + Model.business?.businessPhotos[0].Photo.ToString() ?? "prof.png";
-  
+    var businessName = Model?.business?.Name ?? "Business";
+
+    var photoPath = string.Empty;
+    if( Model?.business?.businessPhotos != null)
+    {
+        photoPath = "~/images/" + (Model?.business?.Name?.ToString()) + "/" + Model?.business?.businessPhotos[0]?.Photo?.ToString() ?? "prof.png"; //2 way checks
+    }
+    else
+    {
+        photoPath = "~/images/prof.png";
+    }
 }
+
     
 <hr />
-
 
 <div class="row">
     <div class="col-md-2"></div>
@@ -107,6 +114,39 @@
             </form>
         </div>
 
+        <div>
+            @if(Model.business.businessEmployees != null)
+            {
+                @foreach(var employee in Model?.business?.businessEmployees)
+                {
+                     var employeeFullname = employee.Firstname + " " + @employee.Lastname;
+                     
+                     <div class="card">
+                         <div class="card-header">
+                             <center>
+                                 <img class="img img-thumbnail" src="@photoPath" alt="@employeeFullname" style="width: 200px; height: 200px" />
+                             </center>
+                         </div>
+                     
+                         <div class="card-body">
+                             <div class="row">
+                                 <div class="col-md-3"></div>
+                                 <div class="col-md-6">
+                                     <div>
+                                         <label>Firstname</label>
+                                         <p>@employee.Firstname</p>
+                     
+                                         <label>Lastname</label>
+                                         <p>@employee.Lastname</p>
+                                     </div>
+                                 </div>
+                                 <div class="col-md-3"></div>
+                             </div>
+                         </div>
+                     </div>
+                 }
+             }
+        </div>
     </div>
 
     <div class="col-md-2"></div>
@@ -119,7 +159,7 @@
     <script src="~/lib/knockout/knockout-latest.js"></script>
 
     <script type="text/javascript">
-       
+        @*alert(@photoPath);*@
 
         function AppViewModel() {
             var self = this;

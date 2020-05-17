@@ -6,19 +6,52 @@ using System.Threading.Tasks;
 
 namespace HandyBusiness.Models
 {
-    public class MockBusinessRepository : IBusinessRepository
+    public class MockBusinessRepository : IBusinessRepository, IEmployeeRepository
     {
+        //Injecting list of employee for specific business
+        private List<Employee> _employeesFSB;
+        //Injecting list of businesses for specific business
         private List<Business> _BusinessList;
 
         public MockBusinessRepository()
         {
+            //initialize business sectors obeject
             List<Sector> businessSectors = new List<Sector>()
             {
                 new Sector(){ Id = 1, ChargesPerHour = 350.00, OperatingYear = 2, OperatingMonth = 4, SectorName = "Gardening"},
                 new Sector(){ Id = 2, ChargesPerHour = 550.00, OperatingYear = 3, OperatingMonth = 7,SectorName = "Painting"},
             };
 
-            //create a list of businesses that will show in the front end
+            //initialize list of employees for a specific business
+            _employeesFSB = new List<Employee>()
+            {
+                new Employee()
+                {
+                    businessId = 1,
+                    Firstname = "firstname1",
+                    Lastname = "Lastname2",
+                    Email = "emp1@emp1.com",
+                    Gender = Gender.Male,
+                    IdNumber = "1231231231234",
+                    CellNo = "08123423445",
+                    DateOfBirth = new DateTime(1990, 05, 21),
+                    PhotoPath = string.Empty
+                },
+                new Employee()
+                {
+                    businessId = 1,
+                    Firstname = "firstname2",
+                    Lastname = "Lastname2",
+                    Email = "emp2@emp2.com",
+                    Gender = Gender.Female,
+                    IdNumber = "3213214563364",
+                    CellNo = "06135648263",
+                    DateOfBirth = new DateTime(1999, 09, 24),
+                    PhotoPath = string.Empty
+                }
+            };
+
+            //initialize list of businesses that will show in the front end
             _BusinessList = new List<Business>()
             {
                 //add static business - dummy data
@@ -36,7 +69,8 @@ namespace HandyBusiness.Models
                     Province = "Gauteng",
                     AddressLine = "123 Bikini Street",
                     Likes = 10, 
-                    Dislikes = 2
+                    Dislikes = 2, 
+                    businessEmployees = _employeesFSB
                 },
                 new Business()
                 {
@@ -61,6 +95,7 @@ namespace HandyBusiness.Models
         {
             return _BusinessList.FirstOrDefault(e => e.Id == id);
         }
+
         //public IEnumerable<Business> GetAllBusinesses()
         //{
         //    return _BusinessList;
@@ -102,6 +137,40 @@ namespace HandyBusiness.Models
             }
 
             return business;
+        }
+
+        public Employee AddEmployeeFSP(Employee employee)
+        {
+            _employeesFSB.Add(employee);
+
+            return employee;
+        }
+
+        public List<Employee> AddMultipleBusiness(List<Employee> employees)
+        {
+            _employeesFSB.AddRange(employees);
+
+            return employees;
+        }
+
+        public List<Employee> GetAllEmployeeFSB(int? businessId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Employee GetEmployeeFSBById(int? businessId, int? employeeId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RemoveEmployeeFSB(int? businessId, int? employeeId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Employee UpdateEmployeeFSB(Employee employeeChanges)
+        {
+            throw new NotImplementedException();
         }
     }
 }

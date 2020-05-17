@@ -78,116 +78,120 @@
         }
 </style>
 
-
-<form enctype="multipart/form-data" method="post">
-    <h1>Add Business Information</h1>
-    <hr />
-    <div class="form-group row">
-        <label asp-for="Name" class="col-sm-2 col-form-label"></label>
-        @*Business.Name*@
-        <div class="col-sm-10">
-            <input asp-for="Name" oninput="this.className = ''" class="form-control" />
-            <span asp-validation-for="Name" class="text-danger"></span>
-        </div>
-    </div>
-
-    @*Business.Email*@
-    <div class="form-group row">
-        <label asp-for="Email" class="col-sm-2 col-form-label"></label>
-
-        <div class="col-sm-10">
-            <input asp-for="Email" oninput="this.className = ''" class="form-control" />
-            <span asp-validation-for="Email" class="text-danger"></span>
-        </div>
-    </div>
-
-    @*Business.Phone*@
-    <div class="form-group row">
-        <label asp-for="Phone" class="col-sm-2 col-form-label"></label>
-
-        <div class="col-sm-10">
-            <input asp-for="Phone" oninput="this.className = ''" class="form-control" />
-            <span asp-validation-for="Phone" class="text-danger"></span>
-        </div>
-    </div>
-
-    @*Business.NoOfStaffs*@
-    <div class="form-group row">
-        <label asp-for="NoOfStaffs" class="col-sm-2 col-form-label"></label>
-
-        <div class="col-sm-10">
-            <input asp-for="NoOfStaffs" oninput="this.className = ''" class="form-control" />
-            <span asp-validation-for="NoOfStaffs" class="text-danger"></span>
-        </div>
-    </div>
-
-    @*Business.City*@
-    <div class="form-group row">
-        <label asp-for="City" class="col-sm-2 col-form-label"></label>
-
-        <div class="col-sm-10">
-            <input asp-for="City" oninput="this.className = ''" class="form-control" />
-            <span asp-validation-for="City" class="text-danger"></span>
-        </div>
-    </div>
-
-    @*Business.Province*@
-    <div class="form-group row">
-        <label asp-for="Province" class="col-sm-2 col-form-label"></label>
-
-        <div class="col-sm-10">
-            <input asp-for="Province" oninput="this.className = ''" class="form-control" />
-            <span asp-validation-for="Province" class="text-danger"></span>
-        </div>
-    </div>
-
-    @*Business.Country*@
-    <div class="form-group row">
-        <label asp-for="Country" class="col-sm-2 col-form-label"></label>
-
-        <div class="col-sm-10">
-            <input asp-for="Country" oninput="this.className = ''" class="form-control" />
-            <span asp-validation-for="Country" class="text-danger"></span>
-        </div>
-    </div>
-
-    @*Business.AddressLine*@
-    <div class="form-group row">
-        <label asp-for="AddressLine" class="col-sm-2 col-form-label"></label>
-
-        <div class="col-sm-10">
-            <input asp-for="AddressLine" oninput="this.className = ''" class="form-control" />
-            <span asp-validation-for="AddressLine" class="text-danger"></span>
-        </div>
-    </div>
-
-    @*Business.PostalCode*@
-    <div class="form-group row">
-        <label asp-for="PostalCode" class="col-sm-2 col-form-label"></label>
-
-        <div class="col-sm-10">
-            <input asp-for="PostalCode" oninput="this.className = ''" class="form-control" />
-            <span asp-validation-for="PostalCode" class="text-danger"></span>
-        </div>
-    </div>
-
-    @*add image(s)*@
-    <div class="form-group row">
-        <label asp-for="Photos" class="col-sm-2 col-form-label"></label>
-        <div class="col-sm-10">
-            <div class="custom-file">
-                <input multiple asp-for="Photos" oninput="this.className = ''" class="form-control custom-file-input" />
-                <label class="custom-file-label">Choose File...</label>
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <form enctype="multipart/form-data" method="post">
+            <h1>Add Business Information</h1>
+            <hr />
+            <div class="form-group row">
+                <label asp-for="Name" class="col-sm-2 col-form-label"></label>
+                @*Business.Name*@
+                <div class="col-sm-10">
+                    <input asp-for="Name" oninput="this.className = ''" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
             </div>
-        </div>
+
+            @*Business.Email*@
+            <div class="form-group row">
+                <label asp-for="Email" class="col-sm-2 col-form-label"></label>
+
+                <div class="col-sm-10">
+                    <input asp-for="Email" oninput="this.className = ''" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+            </div>
+
+            @*Business.Phone*@
+            <div class="form-group row">
+                <label asp-for="Phone" class="col-sm-2 col-form-label"></label>
+
+                <div class="col-sm-10">
+                    <input asp-for="Phone" oninput="this.className = ''" class="form-control" />
+                    <span asp-validation-for="Phone" class="text-danger"></span>
+                </div>
+            </div>
+
+            @*Business.NoOfStaffs*@
+            <div class="form-group row">
+                <label asp-for="NoOfStaffs" class="col-sm-2 col-form-label"></label>
+
+                <div class="col-sm-10">
+                    <input asp-for="NoOfStaffs" oninput="this.className = ''" class="form-control" />
+                    <span asp-validation-for="NoOfStaffs" class="text-danger"></span>
+                </div>
+            </div>
+
+            @*Business.City*@
+            <div class="form-group row">
+                <label asp-for="City" class="col-sm-2 col-form-label"></label>
+
+                <div class="col-sm-10">
+                    <input asp-for="City" oninput="this.className = ''" class="form-control" />
+                    <span asp-validation-for="City" class="text-danger"></span>
+                </div>
+            </div>
+
+            @*Business.Province*@
+            <div class="form-group row">
+                <label asp-for="Province" class="col-sm-2 col-form-label"></label>
+
+                <div class="col-sm-10">
+                    <input asp-for="Province" oninput="this.className = ''" class="form-control" />
+                    <span asp-validation-for="Province" class="text-danger"></span>
+                </div>
+            </div>
+
+            @*Business.Country*@
+            <div class="form-group row">
+                <label asp-for="Country" class="col-sm-2 col-form-label"></label>
+
+                <div class="col-sm-10">
+                    <input asp-for="Country" oninput="this.className = ''" class="form-control" />
+                    <span asp-validation-for="Country" class="text-danger"></span>
+                </div>
+            </div>
+
+            @*Business.AddressLine*@
+            <div class="form-group row">
+                <label asp-for="AddressLine" class="col-sm-2 col-form-label"></label>
+
+                <div class="col-sm-10">
+                    <input asp-for="AddressLine" oninput="this.className = ''" class="form-control" />
+                    <span asp-validation-for="AddressLine" class="text-danger"></span>
+                </div>
+            </div>
+
+            @*Business.PostalCode*@
+            <div class="form-group row">
+                <label asp-for="PostalCode" class="col-sm-2 col-form-label"></label>
+
+                <div class="col-sm-10">
+                    <input asp-for="PostalCode" oninput="this.className = ''" class="form-control" />
+                    <span asp-validation-for="PostalCode" class="text-danger"></span>
+                </div>
+            </div>
+
+            @*add image(s)*@
+            <div class="form-group row">
+                <label asp-for="Photos" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <div class="custom-file">
+                        <input multiple asp-for="Photos" oninput="this.className = ''" class="form-control custom-file-input" />
+                        <label class="custom-file-label">Choose File...</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <button type="submit" class="btn btn-primary">Create</button>
+            </div>
+
+        </form>
     </div>
-
-    <div class="form-group row">
-        <button type="submit" class="btn btn-primary">Create</button>
-    </div>
-
-</form>
-
+    <div class="col-md-2"></div>
+</div>
 
 
 @section Scripts{
@@ -203,6 +207,6 @@
                     fileLabel.html(files[0].name);
                 }
             });
-        });    
+        });
     </script>
 }

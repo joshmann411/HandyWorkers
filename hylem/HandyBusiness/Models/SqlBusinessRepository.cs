@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace HandyBusiness.Models
 {
-    public class SqlBusinessRepository : IBusinessRepository
+    public class SqlBusinessRepository : IBusinessRepository, IEmployeeRepository
     {
         private readonly HylemDbContext context;
 
@@ -67,6 +67,40 @@ namespace HandyBusiness.Models
             business.State = Microsoft.EntityFrameworkCore.EntityState.Modified;
             context.SaveChanges();
             return businessChanges;
+        }
+
+        //=======================================================================
+        public Employee GetEmployeeFSBById(int? businessId, int? employeeId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RemoveEmployeeFSB(int? businessId, int? employeeId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Employee> GetAllEmployeeFSB(int? businessId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Employee AddEmployeeFSP(Employee employee)
+        {
+            //throw new NotImplementedException();
+            context.employeesFSB.Add(employee);
+
+            return employee;
+        }
+
+        public List<Employee> AddMultipleBusiness(List<Employee> employees)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Employee UpdateEmployeeFSB(Employee employeeChanges)
+        {
+            throw new NotImplementedException();
         }
     }
 }

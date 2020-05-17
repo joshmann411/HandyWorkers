@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HandyBusiness.Migrations
 {
     [DbContext(typeof(HylemDbContext))]
-    [Migration("20200505161907_InitialMigration")]
+    [Migration("20200517203636_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -91,6 +91,100 @@ namespace HandyBusiness.Migrations
                     b.ToTable("businessPhotos");
                 });
 
+            modelBuilder.Entity("HandyBusiness.Models.Employee", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CellNo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DateOfBirth")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Firstname")
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<int?>("Gender")
+                        .HasColumnType("int")
+                        .HasMaxLength(7);
+
+                    b.Property<string>("IdNumber")
+                        .HasColumnType("nvarchar(13)")
+                        .HasMaxLength(13);
+
+                    b.Property<string>("Lastname")
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<string>("PhotoPath")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("businessId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("businessId");
+
+                    b.ToTable("Employee");
+                });
+
+            modelBuilder.Entity("HandyBusiness.Models.JobSeeker", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("BusinessId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("DateOfBirth")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Firstname")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Gender")
+                        .HasColumnType("int");
+
+                    b.Property<string>("IDNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Lastname")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SkillDescription")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("profilePicture")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BusinessId");
+
+                    b.ToTable("jobSeekers");
+                });
+
             modelBuilder.Entity("HandyBusiness.Models.Sector", b =>
                 {
                     b.Property<int>("Id")
@@ -110,7 +204,7 @@ namespace HandyBusiness.Migrations
                     b.Property<string>("SectorName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("businessId")
+                    b.Property<int>("businessId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -129,11 +223,29 @@ namespace HandyBusiness.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("HandyBusiness.Models.Employee", b =>
+                {
+                    b.HasOne("HandyBusiness.Models.Business", "business")
+                        .WithMany("businessEmployees")
+                        .HasForeignKey("businessId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("HandyBusiness.Models.JobSeeker", b =>
+                {
+                    b.HasOne("HandyBusiness.Models.Business", null)
+                        .WithMany("potentialJobSeeker")
+                        .HasForeignKey("BusinessId");
+                });
+
             modelBuilder.Entity("HandyBusiness.Models.Sector", b =>
                 {
                     b.HasOne("HandyBusiness.Models.Business", "business")
                         .WithMany("Sectors")
-                        .HasForeignKey("businessId");
+                        .HasForeignKey("businessId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

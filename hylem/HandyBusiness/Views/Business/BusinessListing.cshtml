@@ -142,8 +142,21 @@
 {
     <div class="row">
         <div class="col-md-2"></div>
+
         @{
-            var photoPath = "~/images/" + (business?.Name + "/" + business?.businessPhotos[0].Photo.ToString()) ?? "prof.png";
+            var photoPath = string.Empty;
+
+            if( business?.businessPhotos != null)
+            {
+                photoPath = "~/images/" + (business?.Name?.ToString()) + "/" + business?.businessPhotos[0]?.Photo?.ToString() ?? "prof.png"; //2 way checks
+            }
+            else
+            {
+                photoPath = "~/images/prof.png";
+            }
+
+            //var photoPath = "~/images/" + (business?.Name + "/" + business?.businessPhotos[0].Photo.ToString()) ?? "prof.png";
+            //var photoPath = "~/images/prof.png";
         }
 
         <div class="col-md-8">

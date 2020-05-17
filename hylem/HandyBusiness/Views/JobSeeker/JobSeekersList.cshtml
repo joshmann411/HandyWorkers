@@ -1,0 +1,73 @@
+﻿@model IEnumerable<JobSeeker>
+
+@{
+    ViewData["Title"] = "JobSeekersList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-md-2"></div>
+
+    <div class="col-md-8">
+        <h3>Job Listing</h3>
+        <hr />
+        <input class="form-control mt-2" id="myInput" type="text" placeholder="Search by Name...">
+        <input class="form-control mt-2" id="myInput" type="text" placeholder="Search by Location...">
+        <input class="form-control mt-2" id="myInput" type="text" placeholder="Search by Sector...">
+        <hr />
+    </div>
+
+    <div class="col-md-2"></div>
+</div>
+
+
+@foreach (var jobseeker in Model)
+{
+    var age = @DateTime.Now.Year - @jobseeker.DateOfBirth.Year;
+
+    <div class="row">
+        <div class="col-md-2"></div>
+
+        <div class="col-md-8">
+            <div class="card" style="margin-bottom: 25px">
+                <div class="card-content">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <section class="photo" style="margin: 40px 10px 25px 40px">
+                                <img class="img img-thumbnail" src="~/images/prof.png" alt="@jobseeker.Firstname  @jobseeker.Lastname" />
+                            </section>
+                        </div>
+                        <div class="col-md-8">
+                            <section>
+                                <div class="seekerDescription">
+                                    <label> Fullname </label>
+                                    <p>@jobseeker.Firstname  @jobseeker.Lastname</p>
+                                </div>
+
+                                <div class="seekerDescription">
+                                    <label> Age </label>
+                                    <p> @age </p>
+                                </div>
+
+                                <div class="seekerDescription">
+                                    <label> Gender </label>
+                                    <p> @jobseeker.Gender </p>
+                                </div>
+
+                                <div class="seekerDescription">
+                                    <label> Skills Description </label>
+                                    <p> @jobseeker.SkillDescription </p>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-2"></div>
+    </div>
+}
+
+

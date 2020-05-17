@@ -37,6 +37,7 @@ namespace HandyBusiness.Models
         //public List<int> BusinessPhotosId { get; set; }
         public List<BusinessPhotos> businessPhotos { get; set; }
         public List<Employee> businessEmployees { get; set; }
+        public List<JobSeeker> potentialJobSeeker { get; set; }
     }
 
     public class BusinessPhotos
@@ -75,10 +76,37 @@ namespace HandyBusiness.Models
         public string Email{ get; set; }
         public string CellNo{ get; set; }
         [MaxLength(7)]
-        public string Gender { get; set; }
-        public string DateOfBirth{ get; set; }
+        public Gender? Gender { get; set; }
+        public DateTime DateOfBirth{ get; set; }
+        public string PhotoPath { get; set; }
         public int businessId { get; set; }
         [ForeignKey("businessId")]
         public Business business { get; set; }
+    }
+
+    public class JobSeeker
+    {
+        public int Id { get; set; }
+        [Required]
+        public string Firstname { get; set; }
+        [Required]
+        public string Lastname { get; set; }
+        [Required]
+        public DateTime DateOfBirth { get; set; }
+        [Required]
+        public string Email { get; set; }
+        public string IDNumber { get; set; }
+        [Required]
+        public string Phone { get; set; }
+        public string profilePicture { get; set; }
+        public Gender Gender { get; set; }
+        [Required]
+        public string SkillDescription { get; set; }
+    }
+
+    public enum Gender
+    {
+        Male,
+        Female
     }
 }

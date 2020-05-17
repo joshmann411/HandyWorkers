@@ -13,8 +13,22 @@
     <Compile Remove="Migrations\20200505161520_InitialMigration.Designer.cs" />
     <Compile Remove="Migrations\20200505161718_InitialMigration.cs" />
     <Compile Remove="Migrations\20200505161718_InitialMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200505161907_InitialMigration.cs" />
+    <Compile Remove="Migrations\20200505161907_InitialMigration.Designer.cs" />
     <Compile Remove="Migrations\20200506104853_AddEmployeeSchema.cs" />
     <Compile Remove="Migrations\20200506104853_AddEmployeeSchema.Designer.cs" />
+    <Compile Remove="Migrations\20200506204200_AddEmployeeSchema.cs" />
+    <Compile Remove="Migrations\20200506204200_AddEmployeeSchema.Designer.cs" />
+    <Compile Remove="Migrations\20200517194531_JobSeekerAndEmployeeMigration.cs" />
+    <Compile Remove="Migrations\20200517194531_JobSeekerAndEmployeeMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200517195257_JobSeekerAndEmployeeMigration.cs" />
+    <Compile Remove="Migrations\20200517195257_JobSeekerAndEmployeeMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200517200040_InitialMigration.cs" />
+    <Compile Remove="Migrations\20200517200040_InitialMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200517201756_JobSeekerMigration.cs" />
+    <Compile Remove="Migrations\20200517201756_JobSeekerMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200517203236_initialMigration.cs" />
+    <Compile Remove="Migrations\20200517203236_initialMigration.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

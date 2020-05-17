@@ -18,6 +18,9 @@ namespace HandyBusiness.Models
         public DbSet<Sector> businessSectors { get; set; }
         public DbSet<BusinessPhotos> businessPhotos { get; set; }
 
+        public DbSet<JobSeeker> jobSeekers { get; set; }
+        public DbSet<Employee> employeesFSB { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             List<Sector> sector = new List<Sector>();

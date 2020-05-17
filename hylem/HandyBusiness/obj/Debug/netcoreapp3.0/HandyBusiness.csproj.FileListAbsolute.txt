@@ -114,6 +114,7 @@ C:\Users\Joshua\Documents\Code\ASP_NET CORE\Handy\hylem\HandyBusiness\obj\Debug\
 C:\Users\Joshua\Documents\Code\ASP_NET CORE\Handy\hylem\HandyBusiness\obj\Debug\netcoreapp3.0\Razor\Views\Business\Details.cshtml.g.cs
 C:\Users\Joshua\Documents\Code\ASP_NET CORE\Handy\hylem\HandyBusiness\obj\Debug\netcoreapp3.0\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\Joshua\Documents\Code\ASP_NET CORE\Handy\hylem\HandyBusiness\obj\Debug\netcoreapp3.0\Razor\Views\Home\Privacy.cshtml.g.cs
+C:\Users\Joshua\Documents\Code\ASP_NET CORE\Handy\hylem\HandyBusiness\obj\Debug\netcoreapp3.0\Razor\Views\JobSeeker\JobSeekersList.cshtml.g.cs
 C:\Users\Joshua\Documents\Code\ASP_NET CORE\Handy\hylem\HandyBusiness\obj\Debug\netcoreapp3.0\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\Joshua\Documents\Code\ASP_NET CORE\Handy\hylem\HandyBusiness\obj\Debug\netcoreapp3.0\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\Joshua\Documents\Code\ASP_NET CORE\Handy\hylem\HandyBusiness\obj\Debug\netcoreapp3.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs

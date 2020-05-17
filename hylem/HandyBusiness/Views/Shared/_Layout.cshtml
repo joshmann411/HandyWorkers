@@ -4,11 +4,12 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - HandyBusiness</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link href="~/lib/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
     <link href="~/lib/font-awesome/css/all.css" rel="stylesheet" />
 
+    <script src="~/lib/jquery/jquery.js"></script>
     @*<link rel="stylesheet" href="~/css/site.css" />*@
-    @*<link href="~/lib/bootstrap/css/bootstrap.css" rel="stylesheet" />*@
 </head>
 <body>
     <header>
@@ -33,13 +34,16 @@
                         <li>
                             <a class="nav-link text-dark" asp-area="" asp-controller="Business" asp-action="CreateBusiness">Create Business</a>
                         </li>
+                        <li>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="JobSeeker" asp-action="JobSeekersList">View Job Seekers</a>
+                        </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
+    <div>
+        <main role="main">
             @RenderBody()
         </main>
     </div>

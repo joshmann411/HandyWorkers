@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace HandyBusiness.Migrations
 {
@@ -59,7 +60,7 @@ namespace HandyBusiness.Migrations
                     OperatingYear = table.Column<int>(nullable: false),
                     OperatingMonth = table.Column<int>(nullable: false),
                     ChargesPerHour = table.Column<double>(nullable: false),
-                    businessId = table.Column<int>(nullable: true)
+                    businessId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -67,6 +68,61 @@ namespace HandyBusiness.Migrations
                     table.ForeignKey(
                         name: "FK_businessSectors_businesses_businessId",
                         column: x => x.businessId,
+                        principalTable: "businesses",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Employee",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    IdNumber = table.Column<string>(maxLength: 13, nullable: true),
+                    Firstname = table.Column<string>(maxLength: 50, nullable: true),
+                    Lastname = table.Column<string>(maxLength: 50, nullable: true),
+                    Email = table.Column<string>(nullable: true),
+                    CellNo = table.Column<string>(nullable: true),
+                    Gender = table.Column<int>(maxLength: 7, nullable: true),
+                    DateOfBirth = table.Column<DateTime>(nullable: false),
+                    PhotoPath = table.Column<string>(nullable: true),
+                    businessId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Employee", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Employee_businesses_businessId",
+                        column: x => x.businessId,
+                        principalTable: "businesses",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "jobSeekers",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Firstname = table.Column<string>(nullable: false),
+                    Lastname = table.Column<string>(nullable: false),
+                    DateOfBirth = table.Column<DateTime>(nullable: false),
+                    Email = table.Column<string>(nullable: false),
+                    IDNumber = table.Column<string>(nullable: true),
+                    Phone = table.Column<string>(nullable: false),
+                    profilePicture = table.Column<string>(nullable: true),
+                    Gender = table.Column<int>(nullable: false),
+                    SkillDescription = table.Column<string>(nullable: false),
+                    BusinessId = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_jobSeekers", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_jobSeekers_businesses_BusinessId",
+                        column: x => x.BusinessId,
                         principalTable: "businesses",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
@@ -81,6 +137,16 @@ namespace HandyBusiness.Migrations
                 name: "IX_businessSectors_businessId",
                 table: "businessSectors",
                 column: "businessId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Employee_businessId",
+                table: "Employee",
+                column: "businessId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_jobSeekers_BusinessId",
+                table: "jobSeekers",
+                column: "BusinessId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -90,6 +156,12 @@ namespace HandyBusiness.Migrations
 
             migrationBuilder.DropTable(
                 name: "businessSectors");
+
+            migrationBuilder.DropTable(
+                name: "Employee");
+
+            migrationBuilder.DropTable(
+                name: "jobSeekers");
 
             migrationBuilder.DropTable(
                 name: "businesses");

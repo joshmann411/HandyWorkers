@@ -17,6 +17,10 @@
     {
       "library": "knockout@3.5.1",
       "destination": "wwwroot/lib/knockout/"
+    },
+    {
+      "library": "react@16.13.1",
+      "destination": "wwwroot/lib/react/"
     }
   ]
 }

@@ -64,13 +64,21 @@ namespace HandyBusiness.Models
     public class Employee
     {
         public int Id { get; set; }
+
+        [Required]
+        [Display(Name = "Id Number")]
         [MaxLength(13, ErrorMessage = "Length cannot exceed 13 characters")]
         public string IdNumber { get; set; }
-        
+
+        [Required]
         [MaxLength(50, ErrorMessage = "Length cannot exceed 13 characters")]
         public string Firstname { get; set; }
+       
+        [Required]
         [MaxLength(50, ErrorMessage = "Length cannot exceed 13 characters")]
         public string Lastname { get; set; }
+
+        [Required]
         [RegularExpression(@"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$",
             ErrorMessage = "Invalid Email Format")]
         public string Email{ get; set; }

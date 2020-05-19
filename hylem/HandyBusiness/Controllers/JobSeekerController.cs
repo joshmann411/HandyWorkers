@@ -26,5 +26,12 @@ namespace HandyBusiness.Controllers
 
             return View(model);
         }
+
+
+        
+        public IActionResult AddJobSeeker()
+        {
+            return View();
+        }
     }
 }

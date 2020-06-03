@@ -168,10 +168,13 @@ namespace HandyBusiness.Controllers
                 return View("EmployeeNotFound", id.Value);
             }
 
+            //BusinessDetailsViewModel
+            EmployeeCreateViewModel empObj = new EmployeeCreateViewModel();
+
             BusinessDetailsViewModel businessDetailsViewModel = new BusinessDetailsViewModel()
             {
                 business = ViewBusiness,
-                pageTitle = "Business Details"
+                employeeCreator = empObj
             };
 
             return View(businessDetailsViewModel);

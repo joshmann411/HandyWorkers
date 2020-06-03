@@ -65,5 +65,19 @@ namespace HandyBusiness.Models
             return jobSeeker;
         }
 
+        public JobSeeker GetJobSeekerById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public JobSeeker UpdateJobSeeker(JobSeeker jobSeekerChanges)
+        {
+            throw new NotImplementedException();
+        }
+
+        public JobSeeker DeleteJobSeeker(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

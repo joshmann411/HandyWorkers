@@ -23,7 +23,7 @@ namespace HandyBusiness.ViewModels
 
         //Lastname
         [MaxLength(50, ErrorMessage = "Length cannot exceed 13 characters")]
-        [Display(Name = "Firstname")]
+        [Display(Name = "Lastname")]
         public string Lastname { get; set; }
 
         //Email

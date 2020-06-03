@@ -35,7 +35,8 @@ namespace HandyBusiness
 
             //services.AddSingleton<IBusinessRepository, MockBusinessRepository>();
             services.AddScoped<IBusinessRepository, SqlBusinessRepository>();
-            services.AddSingleton<IJobSeekerRepository, MockJobSeekerRepository>();
+            //services.AddSingleton<IJobSeekerRepository, MockJobSeekerRepository>();
+            services.AddScoped<IJobSeekerRepository, SqlJobSeekersRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -9,6 +9,6 @@ namespace HandyBusiness.ViewModels
     public class BusinessDetailsViewModel
     {
         public Business business { get; set; }
-        public string pageTitle { get; set; }
+        public EmployeeCreateViewModel employeeCreator { get; set; }
     }
 }
